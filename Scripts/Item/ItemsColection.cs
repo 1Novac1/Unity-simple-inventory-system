@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ namespace ItemsCollection
     {
         public Sprite Sprite = Resources.Load<Sprite>("Sprites/Apple");
 
-        public override bool IsStackable => true;
+        public override bool IsStackable { get { return true; } }
 
         public override Sprite GetSprite()
         {
@@ -25,12 +25,14 @@ namespace ItemsCollection
             base.Amount = amount;
         }
 
-        public override Item Clone() => new Apple { Amount = this.Amount };
+        public override Item Clone() => new Apple { Amount = this.Amount }; // For a stackable item you need to clone its amount.
     }
 
     public class GoldenKey : Item
     {
         public Sprite Sprite = Resources.Load<Sprite>("Sprites/GoldenKey");
+
+        public override bool IsStackable { get { return false; } }
 
         public override Sprite GetSprite()
         {
