@@ -25,7 +25,7 @@ public abstract class Item
 
     public virtual Item Clone() => this;
 
-    public virtual bool IsStackable => false;
+    public abstract bool IsStackable { get; }
 
-    public virtual Sprite GetSprite() => null;
+    public abstract Sprite GetSprite();
 }
